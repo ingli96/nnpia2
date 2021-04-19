@@ -30,4 +30,6 @@ public class UserDAOImpl {
         TypedQuery<User> query = em.createQuery(cq);
         return query.getSingleResult();
     }
+
+
 }

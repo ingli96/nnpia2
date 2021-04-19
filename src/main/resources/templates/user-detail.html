@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div th:replace="header :: header">...</div>
+<table th:if="${user != null}">
+    <tr>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <div th:if="${user.userDetail!= null}">
+            <td th:text="${user.userDetail.job}" style="color: #131350"></td>
+            <td th:text="${user.userDetail.age}" style="color: #131350"></td>
+        </div>
+        <td><a th:href="@{/user-update/{id}(id=${user.id})}">Edit</a></td>
+        <td><a th:href="@{/user-delete/{id}(id=${user.id})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>

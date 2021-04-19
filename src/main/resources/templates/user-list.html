@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
 </head>
 <body>
+<div th:replace="header :: header">...</div>
 <h1>users in your team</h1>
 <div th:switch="${users}">
     <h2 th:case="null">No users found!</h2>
@@ -25,6 +27,7 @@
                 <td th:text="${user.lastName}"></td>
                 <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>
                 <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
+                <td><a th:href="@{users/{id}(id=${user.id})}">Detail</a></td>
             </tr>
             </tbody>
         </table>
