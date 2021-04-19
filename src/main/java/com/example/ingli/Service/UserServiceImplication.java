@@ -1,37 +1,41 @@
 package com.example.ingli.Service;
 
-import com.example.ingli.Controller.User;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import com.example.ingli.Controller.model.User;
+import com.example.ingli.dao.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
-@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class UserServiceImplication implements UserService {
+public class UserServiceImplication implements UserService{
 
-    List<User> users = new ArrayList<User>();
-
-    public UserServiceImplication() {
-        this.users.add(new User(1L, "Oleksandr", "Kirieiev"));
-        this.users.add(new User(2L, "Ivan", "Petrov"));
-        this.users.add(new User(3L, "Joe", "Ivanov"));
-    }
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public List<User> getAll() {
-        return users;
+        return userRepository.findAll();
     }
 
     @Override
-    public void create(User object) {
-        this.users.add(object);
+    public User getById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public User create(User object) {
+        return userRepository.save(object);
+    }
+
+    @Override
+    public User update(User object) {
+        return userRepository.save(object);
     }
 
     @Override
     public void delete(Long id) {
-        this.users.remove(Math.toIntExact(id) - 1);
+        userRepository.deleteById(id);
     }
 }

@@ -6,7 +6,11 @@ public interface CrudService<T> {
 
     List<T> getAll();
 
-    void create(T object);
+    T getById(Long id);
+
+    T create(T object);
+
+    T update(T object);
 
     void delete(Long id);
 
