@@ -5,7 +5,7 @@ import com.example.Controller.model.User
 import com.example.dao.ArticleRepository
 import com.example.dao.UserDAOImpl
 import com.example.dao.UserRepository
-
+import com.example.datafactory.Creator
 import com.example.datafactory.UserTestDataFactory
 import org.junit.Test
 import org.junit.jupiter.api.Assertions
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import([UserTestDataFactory.class, UserDAOImpl.class])
+@Import([UserTestDataFactory.class, UserDAOImpl.class, Creator.class])
 class UserRepositoryGroovyTest {
 
     @Autowired
@@ -44,6 +44,16 @@ class UserRepositoryGroovyTest {
     void getUserWithDetailsTest() {
         User user = new User(firstName: "Test Name");
         userTestDataFactory.saveUserWithDetails(user);
+
+        User userInDb = userDAO.getUserWithDetails(user.getId());
+        Assertions.assertTrue(userInDb.getFirstName() == "Test Name")
+        Assertions.assertTrue(userInDb.getUserDetail().getAge() == 24)
+    }
+
+    @Test
+    void getUserWithDetailsCreatorTest() {
+        User user = new User(firstName: "Test Name");
+        Creator.save(user);
 
         User userInDb = userDAO.getUserWithDetails(user.getId());
         Assertions.assertTrue(userInDb.getFirstName() == "Test Name")

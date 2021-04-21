@@ -4,6 +4,7 @@ package com.example.testGroovy
 import com.example.Controller.model.Article;
 import com.example.dao.ArticleRepository;
 import com.example.datafactory.ArticleTestDataFactory
+import com.example.datafactory.Creator
 import org.junit.Test
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -16,22 +17,26 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import(ArticleTestDataFactory.class)
+@Import(Creator.class)
 class ArticleRepositoryGroovyTest {
 
     @Autowired
     private ArticleRepository articleRepository;
 
     @Autowired
-    ArticleTestDataFactory articleTestDataFactory;
+    private Creator creator;
 
     @Test
     void saveArticleTest() {
 
         Article article = new Article(title: "Test Title");
-        articleTestDataFactory.saveArticleWithAuthor(article);
+        creator.save(article);
 
         Article articleInDb = articleRepository.findById(article.getId()).get();
         Assertions.assertTrue(articleInDb.getTitle() == "Test Title")
+
+        println(articleInDb.getTitle())
+        println(articleInDb.getAuthor().getFirstName())
+        Assertions.assertTrue(articleInDb.getAuthor().firstName == "Test Name")
     }
 }
