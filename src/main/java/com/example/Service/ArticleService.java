@@ -1,6 +1,6 @@
-package com.example.ingli.Service;
+package com.example.Service;
 
-import com.example.ingli.Controller.model.Article;
+import com.example.Controller.model.Article;
 import org.springframework.stereotype.Service;
 
 @Service

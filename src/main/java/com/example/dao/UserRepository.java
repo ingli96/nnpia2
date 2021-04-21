@@ -1,6 +1,6 @@
-package com.example.ingli.dao;
+package com.example.dao;
 
-import com.example.ingli.Controller.model.User;
+import com.example.Controller.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

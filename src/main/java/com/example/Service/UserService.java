@@ -1,7 +1,7 @@
-package com.example.ingli.Service;
+package com.example.Service;
 
-import com.example.ingli.Controller.model.User;
-import com.example.ingli.Controller.model.UserDetail;
+import com.example.Controller.model.User;
+import com.example.Controller.model.UserDetail;
 import org.springframework.stereotype.Service;
 
 @Service

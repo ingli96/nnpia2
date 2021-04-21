@@ -1,9 +1,9 @@
-package com.example.ingli;
+package com.example.testGroovy
 
-import com.example.ingli.Controller.model.Article;
-import com.example.ingli.dao.ArticleRepository
-import com.example.ingli.dao.UserRepository;
-import com.example.ingli.datafactory.ArticleTestDataFactory;
+
+import com.example.Controller.model.Article;
+import com.example.dao.ArticleRepository;
+import com.example.datafactory.ArticleTestDataFactory
 import org.junit.Test
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -23,19 +23,15 @@ class ArticleRepositoryGroovyTest {
     private ArticleRepository articleRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ArticleTestDataFactory articleTestDataFactory;
+    ArticleTestDataFactory articleTestDataFactory;
 
     @Test
     void saveArticleTest() {
+
         Article article = new Article(title: "Test Title");
-        articleTestDataFactory.saveArticleGroovyTest(article);
+        articleTestDataFactory.saveArticleWithAuthor(article);
 
         Article articleInDb = articleRepository.findById(article.getId()).get();
-        Assertions.assertTrue(articleInDb.getText() == "Test text")
         Assertions.assertTrue(articleInDb.getTitle() == "Test Title")
     }
-
 }

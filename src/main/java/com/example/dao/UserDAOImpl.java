@@ -1,7 +1,6 @@
-package com.example.ingli.dao;
+package com.example.dao;
 
-import com.example.ingli.Controller.model.User;
-import com.example.ingli.Controller.model.UserDetail;
+import com.example.Controller.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

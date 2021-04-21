@@ -1,7 +1,7 @@
-package com.example.ingli.Service;
+package com.example.Service;
 
-import com.example.ingli.Controller.model.Article;
-import com.example.ingli.dao.ArticleRepository;
+import com.example.dao.ArticleRepository;
+import com.example.Controller.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

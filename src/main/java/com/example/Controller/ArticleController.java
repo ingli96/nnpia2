@@ -1,14 +1,12 @@
-package com.example.ingli.Controller;
+package com.example.Controller;
 
-import com.example.ingli.Controller.model.Article;
-import com.example.ingli.Controller.model.User;
-import com.example.ingli.Service.ArticleService;
-import com.example.ingli.Service.UserService;
+import com.example.Service.ArticleService;
+import com.example.Service.UserService;
+import com.example.Controller.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;

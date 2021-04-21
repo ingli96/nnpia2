@@ -1,7 +1,7 @@
-package com.example.ingli.Controller;
+package com.example.Controller;
 
-import com.example.ingli.Controller.model.User;
-import com.example.ingli.Service.UserService;
+import com.example.Controller.model.User;
+import com.example.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

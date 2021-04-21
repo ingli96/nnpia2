@@ -1,10 +1,10 @@
-package com.example.ingli.Service;
+package com.example.Service;
 
-import com.example.ingli.Controller.model.User;
-import com.example.ingli.Controller.model.UserDetail;
-import com.example.ingli.dao.UserDAOImpl;
-import com.example.ingli.dao.UserDetailRepository;
-import com.example.ingli.dao.UserRepository;
+import com.example.Controller.model.User;
+import com.example.dao.UserDAOImpl;
+import com.example.dao.UserDetailRepository;
+import com.example.Controller.model.UserDetail;
+import com.example.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

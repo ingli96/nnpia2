@@ -1,4 +1,4 @@
-package com.example.ingli.Controller.model;
+package com.example.Controller.model;
 
 import lombok.Data;
 
@@ -22,7 +22,7 @@ public class Article {
     @Column
     private String title;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private User author;
 
     @Column
