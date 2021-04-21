@@ -20,4 +20,13 @@ public class UserTestDataFactory {
         userRepository.save(user);
     }
 
+    @Test
+    public void saveUserGroovyTest(User user) {
+        if (user.getLastName() == null) user.setLastName("TestLastName");
+        if (user.getFirstName() == null) user.setFirstName("TestFirstName");
+        userRepository.save(user);
+    }
+
+
+
 }

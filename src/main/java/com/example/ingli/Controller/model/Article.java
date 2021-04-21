@@ -22,7 +22,7 @@ public class Article {
     @Column
     private String title;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private User author;
 
     @Column
