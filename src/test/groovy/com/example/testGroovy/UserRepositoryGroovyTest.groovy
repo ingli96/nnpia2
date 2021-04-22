@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@Import([UserTestDataFactory.class, Creator.class])
 @Import([UserTestDataFactory.class, UserDAOImpl.class, Creator.class])
 class UserRepositoryGroovyTest {
 
@@ -47,17 +48,6 @@ class UserRepositoryGroovyTest {
 
         User userInDb = userDAO.getUserWithDetails(user.getId());
         Assertions.assertTrue(userInDb.getFirstName() == "Test Name")
-        Assertions.assertTrue(userInDb.getUserDetail().getAge() == 24)
-    }
-
-    @Test
-    void getUserWithDetailsCreatorTest() {
-        User user = new User(firstName: "Test Name");
-        Creator.save(user);
-
-        User userInDb = userDAO.getUserWithDetails(user.getId());
-        Assertions.assertTrue(userInDb.getFirstName() == "Test Name")
-        Assertions.assertTrue(userInDb.getUserDetail().getAge() == 24)
     }
 
     @Test

@@ -24,12 +24,12 @@ public class UserController {
         return "user-list";
     }
 
-    @GetMapping("users/{id}")
-    public String getDetails(@PathVariable("id") Long id, Model model) {
-        User user = userService.getByIdWithDetail(id);
-        model.addAttribute("user", user);
-        return "user-detail";
-    }
+//    @GetMapping("users/{id}")
+//    public String getDetails(@PathVariable("id") Long id, Model model) {
+//        User user = userService.getByIdWithDetail(id);
+//        model.addAttribute("user", user);
+//        return "user-detail";
+//    }
 
     @GetMapping("/user-create")
     public String createUserForm(User user){

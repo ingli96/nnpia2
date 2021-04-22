@@ -33,10 +33,11 @@ class ArticleRepositoryGroovyTest {
         creator.save(article);
 
         Article articleInDb = articleRepository.findById(article.getId()).get();
+        println(articleInDb.getTitle())
         Assertions.assertTrue(articleInDb.getTitle() == "Test Title")
 
         println(articleInDb.getTitle())
         println(articleInDb.getAuthor().getFirstName())
-        Assertions.assertTrue(articleInDb.getAuthor().firstName == "Test Name")
+        Assertions.assertTrue(articleInDb.getAuthor().firstName == "Test firstName")
     }
 }

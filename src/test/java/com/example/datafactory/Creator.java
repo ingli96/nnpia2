@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.lang.reflect.Field;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -71,8 +72,8 @@ public class Creator {
                                 propValue = new Date(System.currentTimeMillis());
                             } else if (Long.class.equals(fieldClass)){
                                 propValue = 1L;
-                            } else if (Set.class.equals(fieldClass)) {
-                                propValue = new HashSet<>();
+                            } else if (List.class.equals(fieldClass)) {
+                                propValue = new ArrayList<>();
                             } else {
                                 propValue = fieldClass.newInstance();
                             }

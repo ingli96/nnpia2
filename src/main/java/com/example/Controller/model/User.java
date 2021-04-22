@@ -29,8 +29,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
-    private UserDetail userDetail;
+    @OneToMany(mappedBy = "user")
+    private List<UserDetail> userDetail;
 
     @OneToMany(mappedBy = "author")
     private List<Article> articles;
@@ -69,11 +69,4 @@ public class User {
         this.lastName = lastName;
     }
 
-    public UserDetail getUserDetail() {
-        return userDetail;
-    }
-
-    public void setUserDetail(UserDetail userDetail) {
-        this.userDetail = userDetail;
-    }
 }

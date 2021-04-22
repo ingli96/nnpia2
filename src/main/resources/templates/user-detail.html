@@ -15,8 +15,8 @@
         <td th:text="${user.firstName}"></td>
         <td th:text="${user.lastName}"></td>
         <div th:if="${user.userDetail!= null}">
-            <td th:text="${user.userDetail.job}" style="color: #131350"></td>
-            <td th:text="${user.userDetail.age}" style="color: #131350"></td>
+            <td th:text="${user.userDetail.name}" style="color: #131350"></td>
+            <td th:text="${user.userDetail.phone}" style="color: #131350"></td>
         </div>
         <td><a th:href="@{/user-update/{id}(id=${user.id})}">Edit</a></td>
         <td><a th:href="@{/user-delete/{id}(id=${user.id})}">Delete</a></td>

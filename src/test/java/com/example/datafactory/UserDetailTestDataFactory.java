@@ -5,16 +5,21 @@ import com.example.dao.UserDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UserDetailTestDataFactory {
 
     @Autowired
     private UserDetailRepository userDetailRepository;
 
-    public UserDetail saveUserDetail() {
+    public List<UserDetail> saveUserDetail() {
+        List<UserDetail> details = new ArrayList<>();
         UserDetail userDetail = new UserDetail();
-        userDetail.setAge(24);
+        userDetail.setPhone(24545465L);
         userDetailRepository.save(userDetail);
-        return userDetail;
+        details.add(userDetail);
+        return details;
     }
 }
