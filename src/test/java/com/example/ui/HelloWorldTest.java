@@ -8,7 +8,7 @@ public class HelloWorldTest {
 
     @Test
     public void myFirstTestCase() {
-        System.setProperty("webdriver.chrome.driver", "c:\\selenium\\libs\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
         driver.quit();
