@@ -5,6 +5,7 @@
 <link th:href="@{/main.css}" rel="stylesheet" />
 </head>
 <body>
+<div th:replace="header :: header">...</div>
 <form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
     <label for="id">ID</label>
     <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
