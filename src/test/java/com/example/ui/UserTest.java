@@ -1,26 +1,42 @@
 package com.example.ui;
 
+import com.example.IngliApplication;
+import com.example.dao.ArticleRepository;
+import com.example.datafactory.Creator;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-
+@SpringBootTest(classes = IngliApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@Import(Creator.class)
 public class UserTest {
 
     private WebDriver driver;
 
-    @BeforeClass
-    public void init(){
+    @Autowired
+    ArticleRepository articleRepository;
+
+    @BeforeAll
+    static void init(){
         System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+//        driver = new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @BeforeEach
+    public void setup(){
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterClass
